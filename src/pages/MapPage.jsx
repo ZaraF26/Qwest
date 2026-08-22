@@ -3,7 +3,6 @@ import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/context/ProfileContext";
 import { MAP_LOCATIONS } from "@/lib/qwest";
 import { useKeyOnLocation as unlockWithKey } from "@/lib/game";
-import { Image } from "@/components/ui/image";
 import Hourglass from "@/components/qwest/Hourglass";
 import CompanionAvatar from "@/components/qwest/CompanionAvatar";
 import { Lock, Key as KeyIcon, X } from "lucide-react";
@@ -60,8 +59,8 @@ export default function MapPage() {
         </div>
       </header>
 
-      <div className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-lg aspect-[3/4] bg-secondary">
-        <Image src={MAP_BG} alt="Illustrated fantasy forest map" fittingType="fill" className="w-full h-full" />
+      <div className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-lg">
+        <img src={MAP_BG} alt="Illustrated fantasy forest map" className="block w-full h-auto align-middle" />
         <div className="absolute inset-0 bg-foreground/10" />
 
         {/* Path dots + locations */}
