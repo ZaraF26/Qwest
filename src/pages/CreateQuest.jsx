@@ -129,7 +129,7 @@ export default function CreateQuest() {
 
       {/* Auto valuation */}
       <div className="parchment-card rounded-2xl border border-gold/40 p-4">
-        <p className="text-[11px] uppercase tracking-wide text-muted-foreground mb-2">Reward (set by the Qwest)</p>
+        <p className="text-[11px] uppercase tracking-wide text-muted-foreground mb-2">Reward (set automatically)</p>
         <div className="flex items-center justify-around">
           <div className="flex flex-col items-center">
             <Crown className="w-5 h-5 text-primary mb-1" />

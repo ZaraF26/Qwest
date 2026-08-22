@@ -39,7 +39,7 @@ export default function DailyIntentionModal({ onDone }) {
 
         <div className="flex flex-col gap-2 mt-5">
           <Button onClick={() => submit(false)} disabled={saving} className="h-12 text-base font-heading">
-            {saving ? "Beginning…" : "Begin Today's Qwest"}
+            {saving ? "Beginning…" : "Begin Today's Quest"}
           </Button>
           <Button onClick={() => submit(true)} variant="ghost" disabled={saving} className="text-muted-foreground">
             Skip

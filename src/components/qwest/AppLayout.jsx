@@ -13,7 +13,7 @@ export default function AppLayout() {
       <div className="min-h-screen parchment flex items-center justify-center">
         <div className="flex flex-col items-center gap-3 text-primary">
           <Hourglass spinning size={40} />
-          <p className="text-sm text-muted-foreground font-body">Opening the storybook…</p>
+          <p className="text-sm text-muted-foreground font-body">Charting your course…</p>
         </div>
       </div>
     );

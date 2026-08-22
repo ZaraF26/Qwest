@@ -50,7 +50,7 @@ export const LEVELS = [
   { level: 7, title: "Sage of the Hollow", xp: 1900 },
   { level: 8, title: "Ancient of the Forest", xp: 2700 },
   { level: 9, title: "Keeper of Lost Paths", xp: 3700 },
-  { level: 10, title: "Legend of the Qwest", xp: 5000 },
+  { level: 10, title: "Legend of the Quest", xp: 5000 },
 ];
 
 export function calcLevel(totalXp) {

@@ -128,7 +128,7 @@ export default function Register() {
   return (
     <AuthLayout
       icon={UserPlus}
-      title="Begin Your Qwest"
+      title="Begin Your Quest"
       subtitle="Create an account to start the adventure"
       footer={
         <>

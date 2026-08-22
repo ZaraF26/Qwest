@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/lib/AuthContext";
 import { Image } from "@/components/ui/image";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ScrollText } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import CompassLogo from "@/components/qwest/CompassLogo";
 
 const HERO = "https://media.base44.com/images/public/6a89f3946ca484ecc6a1aa0f/bd6a23806_generated_image.png";
 
@@ -26,6 +27,7 @@ export default function Welcome() {
         </div>
 
         <div className="relative flex-1 flex flex-col items-center justify-end pb-10 px-6 text-center">
+          <CompassLogo className="w-16 h-16 mb-3 drop-shadow-lg animate-gentle-bob" />
           <div className="flex items-center gap-2 mb-3 text-gold animate-sparkle" aria-hidden="true">
             <Sparkles className="w-5 h-5" /><span className="text-sm tracking-[0.3em] uppercase">A productivity quest</span><Sparkles className="w-5 h-5" />
           </div>
@@ -35,7 +37,7 @@ export default function Welcome() {
           <div className="w-full max-w-sm mt-10 space-y-3">
             <Link to={`/register?returnTo=${returnTo}`}>
               <Button className="w-full h-14 text-lg font-heading bg-primary text-primary-foreground">
-                <ScrollText className="w-5 h-5 mr-2" /> Begin Your Qwest
+                Begin Your Quest
               </Button>
             </Link>
             <Link to={`/login?returnTo=${returnTo}`}>
