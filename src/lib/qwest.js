@@ -146,9 +146,9 @@ export const TRINKETS = [
   { key: "brass_key", name: "Brass Key", category: "Keys", rarity: "epic", emoji: "🗝️", description: "Polished by a hundred hands." },
   { key: "moon_key", name: "Moonlit Key", category: "Keys", rarity: "legendary", emoji: "🗝️", description: "Cold as a winter moon." },
   // Coins
-  { name: "Copper Coin", category: "Coins", rarity: "common", emoji: "🥉", description: "Worn smooth by many pockets." },
-  { name: "Silver Coin", category: "Coins", rarity: "uncommon", emoji: "🥈", description: "Catches light like water." },
-  { name: "Gold Coin", category: "Coins", rarity: "rare", emoji: "🥇", description: "Warm and unexpectedly heavy." },
+  { name: "Copper Coin", category: "Coins", rarity: "common", emoji: "💰", description: "Worn smooth by many pockets." },
+  { name: "Silver Coin", category: "Coins", rarity: "uncommon", emoji: "💰", description: "Catches light like water." },
+  { name: "Gold Coin", category: "Coins", rarity: "rare", emoji: "💰", description: "Warm and unexpectedly heavy." },
   // Trinkets
   { name: "Acorn", category: "Trinkets", rarity: "common", emoji: "🌰", description: "A small beginning." },
   { name: "Pinecone", category: "Trinkets", rarity: "common", emoji: "🌲", description: "Scales opening in the warmth." },
