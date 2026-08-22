@@ -5,6 +5,8 @@ import { MAP_LOCATIONS } from "@/lib/qwest";
 import { useKeyOnLocation as unlockWithKey } from "@/lib/game";
 import Hourglass from "@/components/qwest/Hourglass";
 import CompanionAvatar from "@/components/qwest/CompanionAvatar";
+import { Image } from "@/components/ui/image";
+import { locationImage } from "@/lib/locationImages";
 import { Lock, Key as KeyIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -100,34 +102,42 @@ export default function MapPage() {
       {/* Location detail sheet */}
       {selected && (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/40 backdrop-blur-sm" onClick={() => setSelected(null)}>
-          <div className="w-full max-w-md parchment-card rounded-t-3xl border border-border p-5 pb-8 animate-pop-in" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-[11px] uppercase tracking-wide text-muted-foreground">{selected.region}</p>
-                <h2 className="font-heading text-2xl text-foreground">{selected.name}</h2>
+          <div className="w-full max-w-md parchment-card rounded-t-3xl border border-border overflow-hidden animate-pop-in" onClick={(e) => e.stopPropagation()}>
+            {locationImage(selected.name) && (
+              <div className="relative h-32 w-full">
+                <Image src={locationImage(selected.name)} alt={selected.name} fittingType="fill" className="h-full w-full" />
+                {!selected.unlocked && <div className="absolute inset-0 bg-foreground/45" />}
               </div>
-              <button onClick={() => setSelected(null)} aria-label="Close"><X className="w-5 h-5 text-muted-foreground" /></button>
-            </div>
-            <p className="text-sm text-muted-foreground mt-2">{selected.description}</p>
-
-            {selected.unlocked ? (
-              <p className="mt-4 text-moss font-medium">Discovered!</p>
-            ) : xp < selected.required_xp ? (
-              <p className="mt-4 text-sm text-muted-foreground">Reach {selected.required_xp} XP to find this place. ({selected.required_xp - xp} XP to go)</p>
-            ) : selected.required_key ? (
-              <div className="mt-4">
-                <p className="text-sm text-foreground mb-2">An old door stands before you. It needs the <span className="font-semibold">{selected.required_key.replace(/_/g, " ")}</span>.</p>
-                <button
-                  onClick={() => handleUseKey(selected)}
-                  disabled={busy}
-                  className="w-full py-3 rounded-2xl bg-primary text-primary-foreground font-medium active:scale-95 transition inline-flex items-center justify-center gap-2"
-                >
-                  <KeyIcon className="w-4 h-4" /> Use Key
-                </button>
-              </div>
-            ) : (
-              <p className="mt-4 text-sm text-muted-foreground">You've reached this place — it will be revealed soon.</p>
             )}
+            <div className="p-5 pb-8">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-[11px] uppercase tracking-wide text-muted-foreground">{selected.region}</p>
+                  <h2 className="font-heading text-2xl text-foreground">{selected.name}</h2>
+                </div>
+                <button onClick={() => setSelected(null)} aria-label="Close"><X className="w-5 h-5 text-muted-foreground" /></button>
+              </div>
+              <p className="text-sm text-muted-foreground mt-2">{selected.description}</p>
+
+              {selected.unlocked ? (
+                <p className="mt-4 text-moss font-medium">Discovered!</p>
+              ) : xp < selected.required_xp ? (
+                <p className="mt-4 text-sm text-muted-foreground">Reach {selected.required_xp} XP to find this place. ({selected.required_xp - xp} XP to go)</p>
+              ) : selected.required_key ? (
+                <div className="mt-4">
+                  <p className="text-sm text-foreground mb-2">An old door stands before you. It needs the <span className="font-semibold">{selected.required_key.replace(/_/g, " ")}</span>.</p>
+                  <button
+                    onClick={() => handleUseKey(selected)}
+                    disabled={busy}
+                    className="w-full py-3 rounded-2xl bg-primary text-primary-foreground font-medium active:scale-95 transition inline-flex items-center justify-center gap-2"
+                  >
+                    <KeyIcon className="w-4 h-4" /> Use Key
+                  </button>
+                </div>
+              ) : (
+                <p className="mt-4 text-sm text-muted-foreground">You've reached this place — it will be revealed soon.</p>
+              )}
+            </div>
           </div>
         </div>
       )}
