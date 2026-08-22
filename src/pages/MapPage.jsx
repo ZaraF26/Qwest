@@ -8,7 +8,7 @@ import CompanionAvatar from "@/components/qwest/CompanionAvatar";
 import { Lock, Key as KeyIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const MAP_BG = "https://media.base44.com/images/public/6a89f3946ca484ecc6a1aa0f/354826610_generated_image.png";
+const MAP_BG = "https://media.base44.com/images/public/6a89f3946ca484ecc6a1aa0f/e5b3bd00b_generated_image.png";
 
 export default function MapPage() {
   const { profile } = useProfile();
