@@ -12,8 +12,8 @@
     --popover: 40 44% 97%;
     --popover-foreground: 28 30% 16%;
 
-    /* Deep forest green primary */
-    --primary: 142 28% 26%;
+    /* Warm violet primary */
+    --primary: 274 36% 40%;
     --primary-foreground: 40 44% 96%;
 
     /* Warm muted terracotta secondary */
@@ -32,7 +32,7 @@
 
     --border: 36 26% 82%;
     --input: 36 26% 82%;
-    --ring: 142 28% 26%;
+    --ring: 274 36% 40%;
 
     /* Warm gold */
     --gold: 41 78% 48%;
@@ -44,7 +44,7 @@
     --moss: 95 24% 38%;
     --terracotta: 16 48% 52%;
 
-    --chart-1: 142 28% 36%;
+    --chart-1: 274 30% 45%;
     --chart-2: 41 70% 50%;
     --chart-3: 16 48% 52%;
     --chart-4: 320 24% 48%;
@@ -58,12 +58,12 @@
 
     --sidebar-background: 42 38% 95%;
     --sidebar-foreground: 28 30% 16%;
-    --sidebar-primary: 142 28% 26%;
+    --sidebar-primary: 274 36% 40%;
     --sidebar-primary-foreground: 40 44% 96%;
     --sidebar-accent: 40 30% 90%;
     --sidebar-accent-foreground: 28 30% 16%;
     --sidebar-border: 36 26% 82%;
-    --sidebar-ring: 142 28% 26%;
+    --sidebar-ring: 274 36% 40%;
   }
 
   .dark {
@@ -73,7 +73,7 @@
     --card-foreground: 40 30% 90%;
     --popover: 200 22% 13%;
     --popover-foreground: 40 30% 90%;
-    --primary: 142 30% 55%;
+    --primary: 275 40% 68%;
     --primary-foreground: 200 24% 10%;
     --secondary: 200 18% 20%;
     --secondary-foreground: 40 30% 90%;
@@ -85,7 +85,7 @@
     --destructive-foreground: 40 30% 90%;
     --border: 200 18% 20%;
     --input: 200 18% 20%;
-    --ring: 142 30% 55%;
+    --ring: 275 40% 68%;
   }
 }
 

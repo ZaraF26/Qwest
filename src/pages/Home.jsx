@@ -55,8 +55,9 @@ export default function Home() {
   if (!profile) return null;
 
   const lvl = calcLevel(profile.xp || 0);
-  const mainQuests = quests.filter((q) => q.type === "main" && q.status !== "completed");
-  const sideQuests = quests.filter((q) => q.type === "side" && q.status !== "completed");
+  const mainQuests = quests.filter((q) => q.type === "main").sort((a, b) => Number(a.status === "completed") - Number(b.status === "completed"));
+  const sideQuests = quests.filter((q) => q.type === "side").sort((a, b) => Number(a.status === "completed") - Number(b.status === "completed"));
+  const activeMainCount = mainQuests.filter((q) => q.status !== "completed").length;
   const completedToday = quests.filter((q) => q.status === "completed");
   const xpToday = completedToday.reduce((s, q) => s + (q.xp_value || 0), 0);
   const goldToday = completedToday.reduce((s, q) => s + (q.gold_value || 0), 0);
@@ -108,7 +109,7 @@ export default function Home() {
       <section>
         <div className="flex items-center justify-between mb-2">
           <h2 className="font-heading text-xl text-foreground">Main Quests</h2>
-          <span className="text-xs text-muted-foreground">{mainQuests.length}/3</span>
+          <span className="text-xs text-muted-foreground">{activeMainCount}/3</span>
         </div>
         {mainQuests.length === 0 && !loading ? (
           <EmptyState emoji="🗺️" title="Your quest board is waiting." subtitle="Choose up to three quests that matter most today." />

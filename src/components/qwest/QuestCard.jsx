@@ -26,8 +26,9 @@ export default function QuestCard({ quest, onComplete, compact = false }) {
     <div
       className={cn(
         "parchment-card rounded-2xl border p-4 transition-all",
-        isMain ? "border-primary/30" : "border-border",
-        done && "opacity-60"
+        done
+          ? "bg-primary/10 border-primary/40"
+          : isMain ? "border-primary/30" : "border-border"
       )}
     >
       <div className="flex items-start justify-between gap-3">

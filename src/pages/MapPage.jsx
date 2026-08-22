@@ -3,13 +3,11 @@ import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/context/ProfileContext";
 import { MAP_LOCATIONS } from "@/lib/qwest";
 import { useKeyOnLocation as unlockWithKey } from "@/lib/game";
-import { Image } from "@/components/ui/image";
 import Hourglass from "@/components/qwest/Hourglass";
 import CompanionAvatar from "@/components/qwest/CompanionAvatar";
+import CompassLogo from "@/components/qwest/CompassLogo";
 import { Lock, Key as KeyIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const MAP_BG = "https://media.base44.com/images/public/6a89f3946ca484ecc6a1aa0f/678e56f7c_generated_image.png";
 
 export default function MapPage() {
   const { profile } = useProfile();
@@ -60,9 +58,38 @@ export default function MapPage() {
         </div>
       </header>
 
-      <div className="relative rounded-3xl overflow-hidden border border-border shadow-lg aspect-[3/4] bg-secondary">
-        <Image src={MAP_BG} alt="Illustrated fantasy forest map" fittingType="fill" className="w-full h-full" />
-        <div className="absolute inset-0 bg-foreground/10" />
+      <div className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-lg aspect-[3/4] parchment-card">
+        {/* faint compass watermark */}
+        <CompassLogo className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 opacity-[0.06] pointer-events-none z-0" />
+
+        {/* region labels */}
+        <span className="absolute z-0 text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 font-heading" style={{ left: "20%", top: "76%" }}>Home</span>
+        <span className="absolute z-0 text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 font-heading" style={{ left: "55%", top: "60%" }}>Forest</span>
+        <span className="absolute z-0 text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 font-heading" style={{ left: "64%", top: "47%" }}>Village</span>
+        <span className="absolute z-0 text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 font-heading" style={{ left: "70%", top: "37%" }}>Deep Woods</span>
+        <span className="absolute z-0 text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 font-heading" style={{ left: "53%", top: "16%" }}>The Hollow</span>
+
+        {/* dotted trails between locations */}
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+          {[...locations].sort((a, b) => a.order - b.order).map((loc, i, arr) => {
+            if (i === arr.length - 1) return null;
+            const a = arr[i];
+            const b = arr[i + 1];
+            const open = a.unlocked && b.unlocked;
+            return (
+              <line
+                key={i}
+                x1={a.pos_x} y1={a.pos_y} x2={b.pos_x} y2={b.pos_y}
+                stroke={open ? "hsl(var(--primary))" : "hsl(var(--border))"}
+                strokeWidth={open ? 2 : 1.5}
+                strokeDasharray="4 6"
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+                opacity={open ? 0.6 : 0.5}
+              />
+            );
+          })}
+        </svg>
 
         {/* Path dots + locations */}
         {locations.map((loc) => {
@@ -74,7 +101,7 @@ export default function MapPage() {
             <button
               key={loc.id}
               onClick={() => setSelected(loc)}
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+              className="absolute z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
               style={{ left: `${loc.pos_x}%`, top: `${loc.pos_y}%` }}
               aria-label={loc.name}
             >
