@@ -128,8 +128,8 @@ export default function Register() {
   return (
     <AuthLayout
       icon={UserPlus}
-      title="Create your account"
-      subtitle="Sign up to get started"
+      title="Begin Your Qwest"
+      subtitle="Create an account to start the adventure"
       footer={
         <>
           Already have an account?{" "}

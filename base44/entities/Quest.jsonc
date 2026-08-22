@@ -1,0 +1,83 @@
+{
+  "name": "Quest",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "main",
+        "side"
+      ],
+      "default": "side"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "due_time": {
+      "type": "string"
+    },
+    "estimated_minutes": {
+      "type": "number",
+      "default": 15
+    },
+    "category": {
+      "type": "string"
+    },
+    "timer_minutes": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "missed"
+      ],
+      "default": "active"
+    },
+    "completed_date": {
+      "type": "string"
+    },
+    "xp_value": {
+      "type": "number",
+      "default": 0
+    },
+    "gold_value": {
+      "type": "number",
+      "default": 0
+    },
+    "reward_item": {
+      "type": "string"
+    },
+    "used_timer": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

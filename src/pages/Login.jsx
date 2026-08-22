@@ -40,7 +40,7 @@ export default function Login() {
     <AuthLayout
       icon={LogIn}
       title="Welcome back"
-      subtitle="Log in to your account"
+      subtitle="Return to your quest"
       footer={
         <>
           Don't have an account?{" "}

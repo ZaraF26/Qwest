@@ -6,6 +6,22 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
+import { Navigate } from 'react-router-dom';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import { ProfileProvider } from '@/context/ProfileContext';
+import { TimerProvider } from '@/context/TimerContext';
+import AppLayout from '@/components/qwest/AppLayout';
+import Welcome from '@/pages/Welcome';
+import Home from '@/pages/Home';
+import MapPage from '@/pages/MapPage';
+import Collection from '@/pages/Collection';
+import ProfilePage from '@/pages/ProfilePage';
+import History from '@/pages/History';
+import CreateQuest from '@/pages/CreateQuest';
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
+import ForgotPassword from '@/pages/ForgotPassword';
+import ResetPassword from '@/pages/ResetPassword';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -34,7 +50,21 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      {/* Add your page Route elements here */}
+      <Route path="/" element={<Welcome />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+        <Route element={<AppLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/quests/new" element={<CreateQuest />} />
+          <Route path="/collection" element={<Collection />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/history" element={<History />} />
+        </Route>
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -45,13 +75,17 @@ function App() {
 
   return (
     <AuthProvider>
-      <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <ScrollToTop />
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
-      </QueryClientProvider>
+      <ProfileProvider>
+        <TimerProvider>
+          <QueryClientProvider client={queryClientInstance}>
+            <Router>
+              <ScrollToTop />
+              <AuthenticatedApp />
+            </Router>
+            <Toaster />
+          </QueryClientProvider>
+        </TimerProvider>
+      </ProfileProvider>
     </AuthProvider>
   )
 }

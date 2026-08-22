@@ -1,0 +1,59 @@
+{
+  "name": "MapLocation",
+  "type": "object",
+  "properties": {
+    "order": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "required_xp": {
+      "type": "number",
+      "default": 0
+    },
+    "icon": {
+      "type": "string"
+    },
+    "pos_x": {
+      "type": "number"
+    },
+    "pos_y": {
+      "type": "number"
+    },
+    "unlocked": {
+      "type": "boolean",
+      "default": false
+    },
+    "discovered_date": {
+      "type": "string"
+    },
+    "required_key": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "order"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
