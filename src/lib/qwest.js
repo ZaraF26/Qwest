@@ -197,20 +197,20 @@ export function rollReward(level, ownedNames = []) {
 // ===== Map =====
 // pos_x / pos_y are percentages on the map background (0-100)
 export const MAP_LOCATIONS = [
-  { order: 1, name: "The Cottage", region: "Home", required_xp: 0, icon: "🏡", x: 16, y: 78, description: "Your cosy starting point. The fire is always lit." },
-  { order: 2, name: "Herb Garden", region: "Home", required_xp: 60, icon: "🌿", x: 30, y: 66, description: "Rows of rosemary, thyme, and mint." },
-  { order: 3, name: "Whispering Woods", region: "Forest", required_xp: 140, icon: "🌲", x: 44, y: 54, description: "The trees murmur as you pass." },
-  { order: 4, name: "Mushroom Grove", region: "Forest", required_xp: 240, icon: "🍄", x: 58, y: 64, description: "Toadstools taller than your knee." },
-  { order: 5, name: "Heather Meadow", region: "Forest", required_xp: 360, icon: "🌸", x: 70, y: 50, description: "A wide purple sea of flowers." },
-  { order: 6, name: "Old Library", region: "Village", required_xp: 500, icon: "📚", x: 82, y: 60, description: "Dusty shelves and a reading nook.", required_key: "old_iron_key" },
-  { order: 7, name: "Potion Kitchen", region: "Village", required_xp: 680, icon: "🧪", x: 24, y: 44, description: "Bottles, bubbles, and a copper pot." },
-  { order: 8, name: "Crow's Perch", region: "Village", required_xp: 880, icon: "🐦‍⬛", x: 40, y: 32, description: "A high roost overlooking the woods." },
-  { order: 9, name: "Hidden Garden", region: "Deep Woods", required_xp: 1100, icon: "🌷", x: 56, y: 40, description: "Walled in and overgrown.", required_key: "brass_key" },
-  { order: 10, name: "Crystal Cave", region: "Deep Woods", required_xp: 1350, icon: "💎", x: 72, y: 30, description: "Walls that catch every glimmer." },
-  { order: 11, name: "Forgotten Path", region: "Deep Woods", required_xp: 1650, icon: "🍂", x: 86, y: 40, description: "Half-hidden under fallen leaves." },
-  { order: 12, name: "Ancient Library", region: "The Hollow", required_xp: 2000, icon: "📕", x: 32, y: 22, description: "Older than the forest itself." },
-  { order: 13, name: "Stone Gate", region: "The Hollow", required_xp: 2400, icon: "🚪", x: 54, y: 16, description: "Mossy and waiting.", required_key: "moon_key" },
-  { order: 14, name: "Forest Clearing", region: "The Hollow", required_xp: 2900, icon: "🌳", x: 74, y: 14, description: "A quiet place where the journey rests." },
+  { order: 1, name: "The Cottage", region: "Home", required_xp: 0, icon: "🏡", x: 14, y: 88, description: "Your cosy starting point. The fire is always lit." },
+  { order: 2, name: "Herb Garden", region: "Home", required_xp: 60, icon: "🌿", x: 24, y: 77, description: "Rows of rosemary, thyme, and mint." },
+  { order: 3, name: "Whispering Woods", region: "Forest", required_xp: 140, icon: "🌲", x: 30, y: 61, description: "The trees murmur as you pass." },
+  { order: 4, name: "Mushroom Grove", region: "Forest", required_xp: 240, icon: "🍄", x: 37, y: 79, description: "Toadstools taller than your knee." },
+  { order: 5, name: "Heather Meadow", region: "Forest", required_xp: 360, icon: "🌸", x: 50, y: 86, description: "A wide purple sea of flowers." },
+  { order: 6, name: "Old Library", region: "Village", required_xp: 500, icon: "📚", x: 84, y: 84, description: "Dusty shelves and a reading nook.", required_key: "old_iron_key" },
+  { order: 7, name: "Potion Kitchen", region: "Village", required_xp: 680, icon: "🧪", x: 58, y: 54, description: "Bottles, bubbles, and a copper pot." },
+  { order: 8, name: "Crow's Perch", region: "Village", required_xp: 880, icon: "🐦‍⬛", x: 50, y: 42, description: "A high roost overlooking the woods." },
+  { order: 9, name: "Hidden Garden", region: "Deep Woods", required_xp: 1100, icon: "🌷", x: 22, y: 50, description: "Walled in and overgrown.", required_key: "brass_key" },
+  { order: 10, name: "Crystal Cave", region: "Deep Woods", required_xp: 1350, icon: "💎", x: 16, y: 16, description: "Walls that catch every glimmer." },
+  { order: 11, name: "Forgotten Path", region: "Deep Woods", required_xp: 1650, icon: "🍂", x: 88, y: 52, description: "Half-hidden under fallen leaves." },
+  { order: 12, name: "Ancient Library", region: "The Hollow", required_xp: 2000, icon: "📕", x: 50, y: 14, description: "Older than the forest itself." },
+  { order: 13, name: "Stone Gate", region: "The Hollow", required_xp: 2400, icon: "🚪", x: 84, y: 16, description: "Mossy and waiting.", required_key: "moon_key" },
+  { order: 14, name: "Forest Clearing", region: "The Hollow", required_xp: 2900, icon: "🌳", x: 70, y: 20, description: "A quiet place where the journey rests." },
 ];
 
 export function unlockedLocations(totalXp) {
