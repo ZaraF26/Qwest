@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { useProfile } from "@/context/ProfileContext";
 import { MAP_LOCATIONS } from "@/lib/qwest";
-import { useKeyOnLocation } from "@/lib/game";
+import { useKeyOnLocation as unlockWithKey } from "@/lib/game";
 import { Image } from "@/components/ui/image";
 import Hourglass from "@/components/qwest/Hourglass";
 import CompanionAvatar from "@/components/qwest/CompanionAvatar";
@@ -40,7 +40,7 @@ export default function MapPage() {
   const handleUseKey = async (loc) => {
     setBusy(true);
     try {
-      const res = await useKeyOnLocation(loc, profile);
+      const res = await unlockWithKey(loc, profile);
       if (res.ok) {
         await load();
         setSelected(null);

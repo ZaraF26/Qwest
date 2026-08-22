@@ -6,7 +6,6 @@ import { toast } from "@/components/ui/use-toast";
 export default function DailyIntentionModal({ onDone }) {
   const [text, setText] = useState("");
   const [saving, setSaving] = useState(false);
-  const navigate = useNavigate();
 
   const submit = async (skip) => {
     setSaving(true);
